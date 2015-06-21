@@ -1,0 +1,21 @@
+<%= form_for(@lable) do |f| %>
+  <% if @lable.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lable.errors.count, "error") %> prohibited this lable from being saved:</h2>
+
+      <ul>
+      <% @lable.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :lablestr %><br>
+    <%= f.text_field :lablestr %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
