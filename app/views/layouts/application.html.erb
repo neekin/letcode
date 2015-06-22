@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Letcode</title>
+  <title><%= yield(:title) %> | Letcode</title>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-COMPATIBLE" content="IE-EDGE,CHROME=1"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
+<body class="<%= params[:controller]+'-'+params[:action]%>">
+<%= render partial:'page/navbar'%>
 <%= yield %>
-
+<%= render partial:'page/footer' %>
 </body>
 </html>
