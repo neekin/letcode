@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150621194007) do
+ActiveRecord::Schema.define(version: 20150625115436) do
 
   create_table "lables", force: :cascade do |t|
     t.string   "lablestr"
@@ -33,9 +33,10 @@ ActiveRecord::Schema.define(version: 20150621194007) do
     t.string   "username"
     t.string   "email"
     t.string   "password_digest"
-    t.string   "avtar"
+    t.string   "avtar.rb"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "auth_token"
   end
 
 end

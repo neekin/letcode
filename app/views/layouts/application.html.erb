@@ -10,8 +10,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= params[:controller]+'-'+params[:action]%>">
-<%= render partial:'page/navbar'%>
+
 <%= yield %>
-<%= render partial:'page/footer' %>
+
 </body>
 </html>

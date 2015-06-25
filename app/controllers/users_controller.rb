@@ -28,6 +28,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        cookies[:auth_token] = @user.auth_token
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -59,6 +60,38 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def create_login_session
+    user = User.find_by_username(params[:username])
+    if user && user.authenticate(params[:password])
+        # user.auth_token = SecureRandom.urlsafe_base64
+        # user.save
+      if params[:rememberme]
+        cookies.permanent[:auth_token] =user.auth_token #持久化保存
+      else
+        cookies[:auth_token] = user.auth_token #临时性保存 类似 session
+      end
+      redirect_to :root
+    else
+      flash.notice = "用户名密码错误!"
+      redirect_to :login
+    end
+  end
+
+  def login
+  end
+  def logout
+    cookies.delete(:auth_token)
+    redirect_to :root
+  end
+  def avatar
+    current_user.avatar=user_params[:avatar]
+    current_user.save!
+    redirect_to :root
+  end
+  def info
+    @user = current_user
   end
 
   private

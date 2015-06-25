@@ -18,6 +18,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-mousewheel-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -43,5 +44,12 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  #image
+  #ubuntu需要如下组件
+  #sudo apt-get -y install imagemagick
+  #sudo apt-get -y install libmagic-dev
+  #sudo apt-get -y install libmagickwand-dev
+  gem 'carrierwave','~> 0.10.0'
+  gem 'mini_magick','~> 3.8.0'
 end
 
