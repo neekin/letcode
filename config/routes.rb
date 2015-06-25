@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'login'=> 'users#login'
   post 'create_login_session' =>'users#create_login_session'
   get 'logout'=>'users#logout'
-  post 'avatar/uploadavatar'=>'users#avatar'
+  post 'avtar/uploadavatar'=>'users#avtar'
   get ':username' =>'users#info'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

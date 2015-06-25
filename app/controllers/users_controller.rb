@@ -85,8 +85,8 @@ class UsersController < ApplicationController
     cookies.delete(:auth_token)
     redirect_to :root
   end
-  def avatar
-    current_user.avatar=user_params[:avatar]
+  def avtar
+    current_user.avtar=user_params[:avtar]
     current_user.save!
     redirect_to :root
   end

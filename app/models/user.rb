@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :topic
   #添加用户验证
   before_create { generate_token(:auth_token) }
-  mount_uploader :avatar, AvatarUploader
+  mount_uploader :avtar, AvatarUploader
   def generate_token(column)
     begin
       self[column] = SecureRandom.urlsafe_base64
