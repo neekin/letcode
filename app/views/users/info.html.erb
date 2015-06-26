@@ -1,8 +1,26 @@
-<%= image_tag(current_user.avtar_url(:big)) if current_user.avtar%>
-<%= form_for(@user,url:{action:"avtar"},html:{multipart:true,method:"post"}) do |f|%>
-    <div class="field">
-      <%= f.file_field :avtar%>
-      <%= f.hidden_field :avtar_cache %>
-      <%= f.submit "上传头像", class: "btn btn-primary btn-sm" %>
+<% provide(:title, "我的信息") %>
+
+<div class="content">
+<%= render partial:'page/navbar' %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="panel panel-default">
+        <div class="panel-heading">我的信息</div>
+        <div class="panel-body">
+          <%= image_tag(current_user.avtar_url(:big)) if current_user.avtar%>
+          <%= form_for(@user,url:{action:"avtar"},html:{multipart:true,method:"post"}) do |f|%>
+              <div class="field">
+                <%= f.file_field :avtar%>
+                <%= f.hidden_field :avtar_cache %>
+                <%= f.submit "上传头像", class: "btn btn-primary btn-sm" %>
+              </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-<% end %>
+  </div>
+</div>
+</div>
+<%= render partial:'page/footer' %>

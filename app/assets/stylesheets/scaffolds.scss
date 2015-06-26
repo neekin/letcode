@@ -1,8 +1,19 @@
 .footer
 {
   background-color: #f8f8f8;
+  height: 80px;
 }
-
 body{
-  background-color: #ccc;
+  background: #ccc;
+  height: 100%;
+}
+html
+{
+  height: 100%;
+}
+.content
+{
+  min-height: 100%;
+  margin-bottom: -80px;
+
 }
