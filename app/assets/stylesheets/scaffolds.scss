@@ -17,3 +17,15 @@ html
   margin-bottom: -80px;
 
 }
+.notice
+{
+  min-height: 60px;
+  width:200px;
+  background: teal;
+  position:absolute;
+  bottom: 80px;
+  right: 20px;
+  color:white;
+  padding: 20px;
+  box-shadow: 6px 7px 9px -1px rgba(0,0,0,0.6);
+}

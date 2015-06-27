@@ -65,16 +65,19 @@ class UsersController < ApplicationController
   def create_login_session
     user = User.find_by_username(params[:username])
     if user && user.authenticate(params[:password])
-        # user.auth_token = SecureRandom.urlsafe_base64
-        # user.save
+         if !user.auth_token
+           user.auth_token = SecureRandom.urlsafe_base64
+           user.save
+         end
       if params[:rememberme]
         cookies.permanent[:auth_token] =user.auth_token #持久化保存
       else
         cookies[:auth_token] = user.auth_token #临时性保存 类似 session
       end
+      flash.notice =''
       redirect_to :root
     else
-      flash.notice = "用户名密码错误!"
+      flash.notice = "用户名或密码错误!"
       redirect_to :login
     end
   end
