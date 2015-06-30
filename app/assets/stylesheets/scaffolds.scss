@@ -4,7 +4,7 @@
   height: 80px;
 }
 body{
-  background: #ccc;
+  background: #E7EAEC;
   height: 100%;
 }
 html
@@ -28,4 +28,13 @@ html
   color:white;
   padding: 20px;
   box-shadow: 6px 7px 9px -1px rgba(0,0,0,0.6);
+}
+
+.boxshadow-down
+{
+  box-shadow: 0 1px 9px #9c9c9c;
+}
+.boxshadow-up
+{
+  box-shadow: 0 1px 9px #9c9c9c;
 }
